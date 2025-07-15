@@ -1,13 +1,11 @@
 import os
 import argparse
 import requests
-import re
 from bs4 import BeautifulSoup
 from difflib import get_close_matches
 
 GRAPHQL_URL = "https://leetcode.com/graphql"
 
-# Step 1: Get all problems from LeetCode
 def fetch_all_problems():
     query = {
         "operationName": "problemsetQuestionList",
@@ -53,8 +51,6 @@ def fetch_all_problems():
         print(res.text)
         return []
 
-
-# Step 2: Fuzzy match input
 def match_problem(user_input, problems):
     user_input = user_input.lower().replace('.', ' ').replace('-', ' ').replace('_', ' ')
     matches = []
@@ -70,7 +66,6 @@ def match_problem(user_input, problems):
         return None
     return dict(matches)[best_match[0]]
 
-# Step 3: Fetch full problem content by slug
 def fetch_problem_details(slug):
     query = {
         "operationName": "questionData",
@@ -91,16 +86,14 @@ def fetch_problem_details(slug):
     res = requests.post(GRAPHQL_URL, json=query)
     return res.json()['data']['question']
 
-# Step 4: Convert HTML to Markdown
 def html_to_markdown(html):
     soup = BeautifulSoup(html, "html.parser")
     return soup.get_text("\n")
 
-# Step 5: Create file structure
 def kebab_case(s):
     return s.lower().replace(" ", "-").replace("'", "")
 
-def create_problem_files(problem):
+def create_problem_files(problem, lang="both"):
     number = problem['questionFrontendId']
     title = problem['title']
     slug = problem['titleSlug']
@@ -126,26 +119,39 @@ def create_problem_files(problem):
 
 {description}
 """
-
     with open(os.path.join(base_path, "README.md"), "w") as f:
         f.write(readme)
 
-    with open(os.path.join(base_path, "solution", "solution.py"), "w") as f:
-        f.write("""class Solution:
+    if lang in ["python", "both"]:
+        with open(os.path.join(base_path, "solution", "solution.py"), "w") as f:
+            f.write("""class Solution:
     def method_name(self, *args):
         pass
 """)
 
-    print(f"✅ Created: {base_path}/")
+    if lang in ["java", "both"]:
+        with open(os.path.join(base_path, "solution", "Solution.java"), "w") as f:
+            f.write("""public class Solution {
+    public void methodName() {
+        // TODO: implement
+    }
+}
+""")
 
-# Main script
+    print(f"Created: {base_path}/ ({lang} files)")
+
 def main():
     parser = argparse.ArgumentParser(description="Create LeetCode problem folder from fuzzy input.")
-    parser.add_argument("query", type=str, help="Problem ID or title (e.g. '1.twosum', '42', 'binary tree max path')")
+    parser.add_argument("query", type=str, help="Problem ID or title (e.g. '1.twosum', 'binary tree max path')")
+    parser.add_argument("--lang", type=str, choices=["python", "java", "both"], default="both", help="Language to create (python, java, both). Default is both.")
     args = parser.parse_args()
 
     print("🔍 Fetching problems...")
     problems = fetch_all_problems()
+    if not problems:
+        print("Could not fetch problems.")
+        return
+
     matched = match_problem(args.query, problems)
 
     if not matched:
@@ -154,7 +160,7 @@ def main():
 
     print(f"Matched: {matched['questionFrontendId']}. {matched['title']} [{matched['difficulty']}]")
     details = fetch_problem_details(matched['titleSlug'])
-    create_problem_files(details)
+    create_problem_files(details, args.lang)
 
 if __name__ == "__main__":
     main()
