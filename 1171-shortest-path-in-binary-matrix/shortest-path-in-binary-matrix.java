@@ -31,6 +31,6 @@ class Solution {
             }
             length++;
         }
-        return length == 1? length : -1;
+        return -1;
     }
 }
