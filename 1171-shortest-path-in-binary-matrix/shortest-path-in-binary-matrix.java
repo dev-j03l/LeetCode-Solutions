@@ -1,11 +1,11 @@
 class Solution {
     public int shortestPathBinaryMatrix(int[][] grid) {
         int ROWS = grid.length, COLS = grid.length;
-        int[][] visit = new int[ROWS][COLS];
+        boolean[][] visit = new boolean[ROWS][COLS];
         Deque<int[]> q = new ArrayDeque<>();
 
         q.add(new int[2]); // {0, 0}
-        visit[0][0] = 1;
+        visit[0][0] = true;
         int length = 1;
         if(grid[0][0] == 1) return -1;
         while(! q.isEmpty()){
@@ -23,10 +23,10 @@ class Solution {
                     int newC = neighbours[j][1];
 
                     if(Math.min(newR, newC) < 0 || newR == ROWS || newC == COLS || 
-                    visit[newR][newC] == 1 || grid[newR][newC] == 1) continue;
+                    visit[newR][newC] == true || grid[newR][newC] == 1) continue;
 
                     q.add(neighbours[j]);
-                    visit[newR][newC] = 1;
+                    visit[newR][newC] = true;
                 }
             }
             length++;
