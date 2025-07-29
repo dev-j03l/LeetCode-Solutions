@@ -7,7 +7,7 @@ class Solution {
     }
     public int[] resultsArray(int[] nums, int k) {
         if(nums.length ==  1) return nums;
-
+        boolean isInAsc = true;
         int  l = 0, r = k -1;
         int arr[] = new int[nums.length - k + 1];
         while(r < nums.length){
