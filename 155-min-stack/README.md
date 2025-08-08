@@ -1,70 +1,29 @@
-# 155. Min Stack
+<h2><a href="https://leetcode.com/problems/min-stack">Min Stack</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
-**Difficulty:** Medium  
-**Link:** [https://leetcode.com/problems/min-stack/](https://leetcode.com/problems/min-stack/)
+<p>Implement the <code>MinStack</code> class:</p>
 
-## Problem Description
+<ul>
+	<li><code>MinStack()</code> initializes the stack object.</li>
+	<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
+	<li><code>void pop()</code> removes the element on the top of the stack.</li>
+	<li><code>int top()</code> gets the top element of the stack.</li>
+	<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
+</ul>
 
-Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-Implement the 
-MinStack
- class:
-
-
-
-
-MinStack()
- initializes the stack object.
-
-
-void push(int val)
- pushes the element 
-val
- onto the stack.
-
-
-void pop()
- removes the element on the top of the stack.
-
-
-int top()
- gets the top element of the stack.
-
-
-int getMin()
- retrieves the minimum element in the stack.
-
-
-
-
-You must implement a solution with 
-O(1)
- time complexity for each function.
-
-
- 
-
-
-Example 1:
-
-
-
-
-Input
-
-["MinStack","push","push","push","getMin","pop","top","getMin"]
+<pre>
+<strong>Input</strong>
+[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
 [[],[-2],[0],[-3],[],[],[],[]]
 
-
-Output
-
+<strong>Output</strong>
 [null,null,null,null,-3,null,0,-2]
 
-
-Explanation
-
+<strong>Explanation</strong>
 MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
@@ -73,48 +32,13 @@ minStack.getMin(); // return -3
 minStack.pop();
 minStack.top();    // return 0
 minStack.getMin(); // return -2
+</pre>
 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-
- 
-
-
-Constraints:
-
-
-
-
--2
-31
- <= val <= 2
-31
- - 1
-
-
-Methods 
-pop
-, 
-top
- and 
-getMin
- operations will always be called on 
-non-empty
- stacks.
-
-
-At most 
-3 * 10
-4
- calls will be made to 
-push
-, 
-pop
-, 
-top
-, and 
-getMin
-.
-
-
-
-
+<ul>
+	<li><code>-2<sup>31</sup> &lt;= val &lt;= 2<sup>31</sup> - 1</code></li>
+	<li>Methods <code>pop</code>, <code>top</code> and <code>getMin</code> operations will always be called on <strong>non-empty</strong> stacks.</li>
+	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
+</ul>
