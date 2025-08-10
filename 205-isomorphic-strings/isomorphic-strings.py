@@ -13,7 +13,5 @@ class Solution:
                 t_indices[letter] = [i]
             else:
                 t_indices[letter].append(i)
-        
-        print(t_indices.values())
-        print(s_indices.values())
+                
         return list(t_indices.values()) == list(s_indices.values())
