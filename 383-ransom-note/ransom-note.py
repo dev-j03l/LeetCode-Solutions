@@ -6,10 +6,8 @@ class Solution:
         
         for letter in ransomNote:
             letters[letter] -= 1
-        
-        for val in letters.values():
-            if val < 0:
+            if letters[letter] < 0:
                 return False
-        
+                
         return True
         
