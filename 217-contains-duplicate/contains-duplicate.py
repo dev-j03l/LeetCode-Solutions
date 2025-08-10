@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: bool
         """
         # HashMap way
-        seen = {}
-        for num in nums:
-            if num in seen:
-                return True
-            else:
-                seen[num] = 1
-        return False
+        # seen = {}
+        # for num in nums:
+        #     if num in seen:
+        #         return True
+        #     seen[num] = 1
+        # return False
+        return len(nums) != len(set(nums))
         
