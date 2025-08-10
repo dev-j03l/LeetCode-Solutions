@@ -1,88 +1,29 @@
-# 242. Valid Anagram
+<h2><a href="https://leetcode.com/problems/valid-anagram">Valid Anagram</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an <span data-keyword="anagram">anagram</span> of <code>s</code>, and <code>false</code> otherwise.</p>
 
-**Difficulty:** Easy  
-**Link:** [https://leetcode.com/problems/valid-anagram/](https://leetcode.com/problems/valid-anagram/)
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-## Problem Description
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;anagram&quot;, t = &quot;nagaram&quot;</span></p>
 
-Given two strings 
-s
- and 
-t
-, return 
-true
- if 
-t
- is an 
-anagram
- of 
-s
-, and 
-false
- otherwise.
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+</div>
 
+<p><strong class="example">Example 2:</strong></p>
 
- 
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;rat&quot;, t = &quot;car&quot;</span></p>
 
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+</div>
 
-Example 1:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
+<ul>
+	<li><code>1 &lt;= s.length, t.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
+</ul>
 
-
-
-Input:
- 
-s = "anagram", t = "nagaram"
-
-
-Output:
- 
-true
-
-
-
-
-Example 2:
-
-
-
-
-Input:
- 
-s = "rat", t = "car"
-
-
-Output:
- 
-false
-
-
-
-
- 
-
-
-Constraints:
-
-
-
-
-1 <= s.length, t.length <= 5 * 10
-4
-
-
-s
- and 
-t
- consist of lowercase English letters.
-
-
-
-
- 
-
-
-Follow up:
- What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
-
-
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
