@@ -1,119 +1,43 @@
-# 49. Group Anagrams
+<h2><a href="https://leetcode.com/problems/group-anagrams">Group Anagrams</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an array of strings <code>strs</code>, group the <span data-keyword="anagram">anagrams</span> together. You can return the answer in <strong>any order</strong>.</p>
 
-**Difficulty:** Medium  
-**Link:** [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/)
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-## Problem Description
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;eat&quot;,&quot;tea&quot;,&quot;tan&quot;,&quot;ate&quot;,&quot;nat&quot;,&quot;bat&quot;]</span></p>
 
-Given an array of strings 
-strs
-, group the 
-anagrams
- together. You can return the answer in 
-any order
-.
+<p><strong>Output:</strong> <span class="example-io">[[&quot;bat&quot;],[&quot;nat&quot;,&quot;tan&quot;],[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;]]</span></p>
 
+<p><strong>Explanation:</strong></p>
 
- 
+<ul>
+	<li>There is no string in strs that can be rearranged to form <code>&quot;bat&quot;</code>.</li>
+	<li>The strings <code>&quot;nat&quot;</code> and <code>&quot;tan&quot;</code> are anagrams as they can be rearranged to form each other.</li>
+	<li>The strings <code>&quot;ate&quot;</code>, <code>&quot;eat&quot;</code>, and <code>&quot;tea&quot;</code> are anagrams as they can be rearranged to form each other.</li>
+</ul>
+</div>
 
+<p><strong class="example">Example 2:</strong></p>
 
-Example 1:
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;&quot;]</span></p>
 
+<p><strong>Output:</strong> <span class="example-io">[[&quot;&quot;]]</span></p>
+</div>
 
+<p><strong class="example">Example 3:</strong></p>
 
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;a&quot;]</span></p>
 
-Input:
- 
-strs = ["eat","tea","tan","ate","nat","bat"]
+<p><strong>Output:</strong> <span class="example-io">[[&quot;a&quot;]]</span></p>
+</div>
 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Output:
- 
-[["bat"],["nat","tan"],["ate","eat","tea"]]
-
-
-Explanation:
-
-
-
-
-There is no string in strs that can be rearranged to form 
-"bat"
-.
-
-
-The strings 
-"nat"
- and 
-"tan"
- are anagrams as they can be rearranged to form each other.
-
-
-The strings 
-"ate"
-, 
-"eat"
-, and 
-"tea"
- are anagrams as they can be rearranged to form each other.
-
-
-
-
-
-
-Example 2:
-
-
-
-
-Input:
- 
-strs = [""]
-
-
-Output:
- 
-[[""]]
-
-
-
-
-Example 3:
-
-
-
-
-Input:
- 
-strs = ["a"]
-
-
-Output:
- 
-[["a"]]
-
-
-
-
- 
-
-
-Constraints:
-
-
-
-
-1 <= strs.length <= 10
-4
-
-
-0 <= strs[i].length <= 100
-
-
-strs[i]
- consists of lowercase English letters.
-
-
-
-
+<ul>
+	<li><code>1 &lt;= strs.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>
+	<li><code>strs[i]</code> consists of lowercase English letters.</li>
+</ul>
