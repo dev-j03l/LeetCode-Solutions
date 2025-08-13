@@ -7,8 +7,7 @@ class Node:
 class BrowserHistory:
 
     def __init__(self, homepage: str):
-        self.homepage = self.currentPage = Node(homepage)
-        
+        self.currentPage = Node(homepage)
 
     def visit(self, url: str) -> None:
         self.currentPage.next = Node(url)
