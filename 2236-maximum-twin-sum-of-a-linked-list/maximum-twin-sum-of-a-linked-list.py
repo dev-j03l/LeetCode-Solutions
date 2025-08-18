@@ -23,7 +23,6 @@ class Solution:
         
         max_sum = 0
         while head and head2:
-            print(head.val, head2.val)
             max_sum = max(head.val + head2.val, max_sum)
             head = head.next
             head2 = head2.next
