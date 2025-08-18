@@ -11,8 +11,16 @@ class Solution:
             fast = fast.next.next
             slow = slow.next
         
-        #current slow is at lower mid
-        head2 = self._reverse(slow.next)
+        head2 = slow.next
+        slow.next = None
+        prev = None
+        while head2:
+            tmp = head2.next
+            head2.next = prev
+            prev = head2
+            head2 = tmp
+        head2 = prev
+        
         max_sum = 0
         while head and head2:
             print(head.val, head2.val)
@@ -21,14 +29,3 @@ class Solution:
             head2 = head2.next
         
         return max_sum
-            
-    def _reverse(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = None
-        cur = head
-        while cur:
-            tmp = cur.next
-            cur.next = prev
-            prev = cur
-            cur = tmp
-        
-        return prev
