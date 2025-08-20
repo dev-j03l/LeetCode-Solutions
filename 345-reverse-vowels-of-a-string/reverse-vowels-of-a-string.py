@@ -1,21 +1,17 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        L = 0
-        R = len(s) - 1
         s = list(s)
-        vowels = "aeiouAEIOU"
+        L, R = 0, len(s) - 1
+        vowels = set("aeiouAEIOU")
 
         while L < R:
-            while s[L] not in vowels and L< R:
+            while L < R and s[L] not in vowels:
                 L += 1
-            while s[R] not in vowels and L<R:
+            while L < R and s[R] not in vowels:
                 R -= 1
-            
-            tmp = s[L]
-            s[L] = s[R]
-            s[R] = tmp
-            L+= 1
-            R -= 1
-    
-        return "".join(s)
+            if L < R:
+                s[L], s[R] = s[R], s[L]
+                L += 1
+                R -= 1
 
+        return "".join(s)
