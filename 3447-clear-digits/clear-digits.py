@@ -3,7 +3,7 @@ class Solution:
         stack = []
 
         for char in s:
-            if not char.isalpha():
+            if char.isdigit():
                 stack.pop()
             else:
                 stack.append(char)
