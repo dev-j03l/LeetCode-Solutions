@@ -1,15 +1,13 @@
 class Solution:
     def maxDepth(self, s: str) -> int:
         max_len = 0
-        stack = []
-        opening = {"{", "[", "("}
-        closing = {"}", "]", ")"}
+        count = 0
 
         for ch in s:
-            if ch in opening:
-                stack.append(ch)
-            elif ch in closing:
-                stack.pop()
+            if ch == "(":
+                count += 1
+            elif ch == ")":
+                count -= 1
+            max_len = max(count, max_len)
 
-            max_len = max(max_len, len(stack))
         return max_len
