@@ -10,8 +10,6 @@ class Solution:
             elif part == ".":
                 continue
             else:
-                stack.append(part)
-        
-        if stack: stack.insert(0, "")
-        
-        return "/".join(stack) if stack else "/"
+                stack.append("/"+part)
+
+        return "".join(stack) if stack else "/"
