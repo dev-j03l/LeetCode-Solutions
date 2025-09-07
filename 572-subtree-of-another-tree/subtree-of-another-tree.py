@@ -8,19 +8,11 @@ class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not subRoot: return True
         if not root: return False
-        
-        if self.same(root, subRoot): return True
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 
-    def same(self, node1, node2):
-        if not node1:
-            if not node2: return True
-            return False
-        if not node2:
-            if not node1: return True
-            return False
+        def same(root, subRoot):
+            if not root and not subRoot: return True
+            if not root or not subRoot: return False
+
+            return root.val == subRoot.val and same(root.left, subRoot.left) and same(root.right, subRoot.right)
         
-        if node1.val == node2.val:
-            return self.same(node1.left, node2.left) and self.same(node1.right, node2.right)
-        
-        return False
+        return same(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
