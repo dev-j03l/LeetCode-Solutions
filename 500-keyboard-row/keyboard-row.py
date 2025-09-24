@@ -13,7 +13,7 @@ class Solution:
         res = []
         for word in words:
             res.append(word)
-            print(res)
+            
             for i in range(1, len(word)):
                 if letter_to_row[word[i].lower()] != letter_to_row[word[i-1].lower()]:
                     res.pop()
